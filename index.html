@@ -4,11 +4,11 @@
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Php-parse-app : php解析android xml，ipa plist二进制文件，获取应用信息">
+    <meta name="description" content="parse-app : php解析android xml，ipa plist二进制文件，获取应用相关信息">
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <title>Php-parse-app</title>
+    <title>parse-app</title>
   </head>
 
   <body>
@@ -16,14 +16,14 @@
     <!-- HEADER -->
     <div id="header_wrap" class="outer">
         <header class="inner">
-          <a id="forkme_banner" href="https://github.com/loncool/php-parse-app">View on GitHub</a>
+          <a id="forkme_banner" href="https://github.com/loncool/parse-app">View on GitHub</a>
 
-          <h1 id="project_title">Php-parse-app</h1>
-          <h2 id="project_tagline">php解析android xml，ipa plist二进制文件，获取应用信息</h2>
+          <h1 id="project_title">parse-app</h1>
+          <h2 id="project_tagline">php解析android xml，ipa plist二进制文件，获取应用相关信息</h2>
 
             <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/loncool/php-parse-app/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/loncool/php-parse-app/tarball/master">Download this project as a tar.gz file</a>
+              <a class="zip_download_link" href="https://github.com/loncool/parse-app/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/loncool/parse-app/tarball/master">Download this project as a tar.gz file</a>
             </section>
         </header>
     </div>
@@ -32,21 +32,20 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
         <h1>
-<a id="php-parse-app" class="anchor" href="#php-parse-app" aria-hidden="true"><span class="octicon octicon-link"></span></a>php-parse-app</h1>
+<a id="parse-app" class="anchor" href="#parse-app" aria-hidden="true"><span class="octicon octicon-link"></span></a>parse-app</h1>
 
 <p>php解析android xml，ipa plist二进制文件，获取应用信息</p>
 
 <h2>
 <a id="an-sample-demo" class="anchor" href="#an-sample-demo" aria-hidden="true"><span class="octicon octicon-link"></span></a>an sample demo</h2>
 
-<div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-k">include</span> <span class="pl-s3">dirname</span>(<span class="pl-c1">__FILE__</span>) <span class="pl-k">.</span> <span class="pl-s1"><span class="pl-pds">"</span>/../ApkParser.php<span class="pl-pds">"</span></span>;</span>
-<span class="pl-s2"><span class="pl-vo">$main</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-s3">ApkParser</span>;</span>
-<span class="pl-s2"><span class="pl-s3">var_dump</span>(<span class="pl-vo">$main</span><span class="pl-k">-&gt;</span>parse(<span class="pl-s1"><span class="pl-pds">'</span>blabla.apk<span class="pl-pds">'</span></span>));</span>
+<div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-vo">$main</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-s3">ApkParser</span>;</span>
+<span class="pl-s2"><span class="pl-vo">$main</span><span class="pl-k">-&gt;</span>open(<span class="pl-s1"><span class="pl-pds">'</span>blabla.apk<span class="pl-pds">'</span></span>);</span>
 <span class="pl-s2"><span class="pl-s3">echo</span> <span class="pl-vo">$main</span><span class="pl-k">-&gt;</span>getPackage();</span>
-<span class="pl-s2"><span class="pl-s3">echo</span> <span class="pl-vo">$main</span><span class="pl-k">-&gt;</span>getVersion();</span>
+<span class="pl-s2"><span class="pl-s3">echo</span> <span class="pl-vo">$main</span><span class="pl-k">-&gt;</span>getVersionName();</span>
+<span class="pl-s2"><span class="pl-s3">echo</span> <span class="pl-vo">$main</span><span class="pl-k">-&gt;</span>getVersionCode();</span>
 <span class="pl-s2"><span class="pl-s3">echo</span> <span class="pl-vo">$main</span><span class="pl-k">-&gt;</span>getAppName();</span>
-<span class="pl-s2"><span class="pl-s3">echo</span> <span class="pl-vo">$main</span><span class="pl-k">-&gt;</span>getMainXml();</span>
-<span class="pl-s2"><span class="pl-k">include</span> <span class="pl-s3">dirname</span>(<span class="pl-c1">__FILE__</span>) <span class="pl-k">.</span> <span class="pl-s1"><span class="pl-pds">"</span>/../IpaParser.php<span class="pl-pds">"</span></span>;</span>
+<span class="pl-s2"></span>
 <span class="pl-s2"><span class="pl-vo">$main</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-s3">IpaParser</span>;</span>
 <span class="pl-s2"><span class="pl-s3">echo</span> <span class="pl-vo">$main</span><span class="pl-k">-&gt;</span>parse(<span class="pl-s1"><span class="pl-pds">'</span>blabla.ipa<span class="pl-pds">'</span></span>);</span>
 <span class="pl-s2"><span class="pl-s3">echo</span> <span class="pl-vo">$main</span><span class="pl-k">-&gt;</span>getPackage();</span>
@@ -59,7 +58,7 @@
     <!-- FOOTER  -->
     <div id="footer_wrap" class="outer">
       <footer class="inner">
-        <p class="copyright">Php-parse-app maintained by <a href="https://github.com/loncool">loncool</a></p>
+        <p class="copyright">parse-app maintained by <a href="https://github.com/loncool">loncool</a></p>
         <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>

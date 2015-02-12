@@ -5,7 +5,7 @@
  * @author zhoushen extrembravo@gmail.com
  * @since  2014/2/14
  */
-require dirname(__FILE__) . '/lib/CFPropertyList/CFPropertyList.php';
+require dirname(__FILE__) . '/CFPropertyList/CFPropertyList.php';
 
 class IpaParser implements ParserAppInterface{
 
@@ -14,11 +14,11 @@ class IpaParser implements ParserAppInterface{
 	public function parse($ipaFile, $infoFile=self::INFO_PLIST){
 		$zipObj = new ZipArchive;
 		if($zipObj->open($ipaFile) !== true){
-			throw new ParseException("unable to open {$ipaFile} file!");
+			throw new PListException("unable to open {$ipaFile} file!");
 		}
 		//scan plist file
 		$plistFile = null;
-	    for ($i=0; $i < $zipObj->numFiles; $i++) { 	
+	    for ($i=0; $i < $zipObj->numFiles; $i++) {
 	    	$name = $zipObj->getNameIndex($i);
 	    	if(strripos($name, 'Info.plist') !== false){
 	    		$plistFile = $name;
@@ -27,7 +27,7 @@ class IpaParser implements ParserAppInterface{
 	    }	    
 	    //parse plist file
 	    if(!$plistFile){
-	    	throw new ParseException("unable to parse plist file！");
+	    	throw new PListException("unable to parse plist file！");
 	    }
 
 	    //deal in memory

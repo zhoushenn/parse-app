@@ -7,7 +7,7 @@
  */
 require dirname(__FILE__) . '/CFPropertyList/CFPropertyList.php';
 
-class IpaParser implements ParserAppInterface{
+class IpaParser{
 
 	const INFO_PLIST = 'Info.plist';
 

@@ -20,7 +20,7 @@ class IpaParser{
 		$plistFile = null;
 	    for ($i=0; $i < $zipObj->numFiles; $i++) {
 	    	$name = $zipObj->getNameIndex($i);
-	    	if(strripos($name, 'Info.plist') !== false){
+	    	if(preg_match('/Payload\/(.+)?\.app\/Info.plist$/i', $name)){
 	    		$plistFile = $name;
 	    		break;
 	    	}			

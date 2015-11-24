@@ -192,9 +192,14 @@ class CFPropertyList extends CFBinaryPropertyList implements Iterator {
         $this->readBinary($file);
         break;
       case CFPropertyList::FORMAT_AUTO: // what we now do is ugly, but neccessary to recognize the file format
-        $fd = fopen($file,"rb");
-        if(($magic_number = fread($fd,8)) === false) throw IOException::notReadable($file);
-        fclose($fd);
+        if (is_resource($file)) {
+            if (($magic_number = fread($file, 8)) === false) throw IOException::notReadable($file);
+            rewind($file);
+        } else {
+            $fd = fopen($file,"rb");
+            if(($magic_number = fread($fd,8)) === false) throw IOException::notReadable($file);
+            fclose($fd);
+        }
 
         $filetype = substr($magic_number,0,6);
         $version  = substr($magic_number,-2);
@@ -207,7 +212,11 @@ class CFPropertyList extends CFBinaryPropertyList implements Iterator {
         // else: xml format, break not neccessary
       case CFPropertyList::FORMAT_XML:
         $doc = new DOMDocument();
-        if(!$doc->load($file)) throw new DOMException();
+        if (is_resource($file)) {
+            if (!$doc->loadXML(stream_get_contents($file))) throw new DOMException();
+        } else {
+            if (!$doc->load($file)) throw new DOMException();
+        }
         $this->import($doc->documentElement, $this);
         break;
     }

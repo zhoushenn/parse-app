@@ -46,6 +46,12 @@ class IOException extends Exception {
    * @param integer $type Type of the problem
    */
   public function __construct($path, $type=null) {
+    if (is_resource($path)) {
+        //$path = (string)$path;
+        $path = '<stream>';
+    } elseif ($path == '') {
+        $path = 'null';
+    }
     parent::__construct( $path, $type );
   }
   

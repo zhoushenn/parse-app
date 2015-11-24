@@ -20,7 +20,7 @@ class IpaParser{
 		$plistFile = null;
 	    for ($i=0; $i < $zipObj->numFiles; $i++) {
 	    	$name = $zipObj->getNameIndex($i);
-	    	if(preg_match('/Payload\/(.+)?\.app\/Info.plist$/i', $name)){
+	    	if(preg_match('/Payload\/(.+)?\.app\/' . preg_quote($infoFile) . '$/i', $name)){
 	    		$plistFile = $name;
 	    		break;
 	    	}			
@@ -35,7 +35,7 @@ class IpaParser{
 	    fwrite( $plistHandle, $zipObj->getFromName($plistFile) );
 	    rewind($plistHandle);
 	    $zipObj->close();
-	    $plist = new CFPropertyList($plistHandle, CFPropertyList::FORMAT_BINARY);
+	    $plist = new CFPropertyList($plistHandle, CFPropertyList::FORMAT_AUTO);
 	    $this->plistContent = $plist->toArray();
 
 	    return true;

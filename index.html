@@ -37,21 +37,33 @@
 <p>php解析android xml，ipa plist二进制文件，获取应用信息</p>
 
 <h2>
-<a id="an-sample-demo" class="anchor" href="#an-sample-demo" aria-hidden="true"><span class="octicon octicon-link"></span></a>an sample demo</h2>
+<a id="使用示例" class="anchor" href="#%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>使用示例</h2>
 
-<div class="highlight highlight-php"><pre><span class="pl-s2"><span class="pl-vo">$main</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-s3">ApkParser</span>;</span>
-<span class="pl-s2"><span class="pl-vo">$main</span><span class="pl-k">-&gt;</span>open(<span class="pl-s1"><span class="pl-pds">'</span>blabla.apk<span class="pl-pds">'</span></span>);</span>
-<span class="pl-s2"><span class="pl-s3">echo</span> <span class="pl-vo">$main</span><span class="pl-k">-&gt;</span>getPackage();</span>
-<span class="pl-s2"><span class="pl-s3">echo</span> <span class="pl-vo">$main</span><span class="pl-k">-&gt;</span>getVersionName();</span>
-<span class="pl-s2"><span class="pl-s3">echo</span> <span class="pl-vo">$main</span><span class="pl-k">-&gt;</span>getVersionCode();</span>
-<span class="pl-s2"><span class="pl-s3">echo</span> <span class="pl-vo">$main</span><span class="pl-k">-&gt;</span>getAppName();</span>
-<span class="pl-s2"></span>
-<span class="pl-s2"><span class="pl-vo">$main</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-s3">IpaParser</span>;</span>
-<span class="pl-s2"><span class="pl-s3">echo</span> <span class="pl-vo">$main</span><span class="pl-k">-&gt;</span>parse(<span class="pl-s1"><span class="pl-pds">'</span>blabla.ipa<span class="pl-pds">'</span></span>);</span>
-<span class="pl-s2"><span class="pl-s3">echo</span> <span class="pl-vo">$main</span><span class="pl-k">-&gt;</span>getPackage();</span>
-<span class="pl-s2"><span class="pl-s3">echo</span> <span class="pl-vo">$main</span><span class="pl-k">-&gt;</span>getVersion();</span>
-<span class="pl-s2"><span class="pl-s3">echo</span> <span class="pl-vo">$main</span><span class="pl-k">-&gt;</span>getAppName();</span>
-<span class="pl-s2"><span class="pl-s3">echo</span> <span class="pl-vo">$main</span><span class="pl-k">-&gt;</span>getPlist();</span></pre></div>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$main</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">ApkParser</span>;</span>
+<span class="pl-s1"><span class="pl-smi">$main</span><span class="pl-k">-&gt;</span>open(<span class="pl-s"><span class="pl-pds">'</span>blabla.apk<span class="pl-pds">'</span></span>);</span>
+<span class="pl-s1"><span class="pl-c1">echo</span> <span class="pl-smi">$main</span><span class="pl-k">-&gt;</span>getPackage();</span>
+<span class="pl-s1"><span class="pl-c1">echo</span> <span class="pl-smi">$main</span><span class="pl-k">-&gt;</span>getVersionName();</span>
+<span class="pl-s1"><span class="pl-c1">echo</span> <span class="pl-smi">$main</span><span class="pl-k">-&gt;</span>getVersionCode();</span>
+<span class="pl-s1"><span class="pl-c1">echo</span> <span class="pl-smi">$main</span><span class="pl-k">-&gt;</span>getAppName();</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-smi">$main</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">IpaParser</span>;</span>
+<span class="pl-s1"><span class="pl-c1">echo</span> <span class="pl-smi">$main</span><span class="pl-k">-&gt;</span>parse(<span class="pl-s"><span class="pl-pds">'</span>blabla.ipa<span class="pl-pds">'</span></span>);</span>
+<span class="pl-s1"><span class="pl-c1">echo</span> <span class="pl-smi">$main</span><span class="pl-k">-&gt;</span>getPackage();</span>
+<span class="pl-s1"><span class="pl-c1">echo</span> <span class="pl-smi">$main</span><span class="pl-k">-&gt;</span>getVersion();</span>
+<span class="pl-s1"><span class="pl-c1">echo</span> <span class="pl-smi">$main</span><span class="pl-k">-&gt;</span>getAppName();</span>
+<span class="pl-s1"><span class="pl-c1">echo</span> <span class="pl-smi">$main</span><span class="pl-k">-&gt;</span>getPlist();</span></pre></div>
+
+<h2>
+<a id="更新日志" class="anchor" href="#%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97" aria-hidden="true"><span class="octicon octicon-link"></span></a>更新日志</h2>
+
+<p>2015/11/24 修复部分包解析bug</p>
+
+<h2>
+<a id="contributor" class="anchor" href="#contributor" aria-hidden="true"><span class="octicon octicon-link"></span></a>contributor</h2>
+
+<p>loncool</p>
+
+<p><a href="https://github.com/chg365">chg365</a></p>
       </section>
     </div>
 
@@ -59,7 +71,7 @@
     <div id="footer_wrap" class="outer">
       <footer class="inner">
         <p class="copyright">parse-app maintained by <a href="https://github.com/loncool">loncool</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
 
